@@ -1,0 +1,1 @@
+C:\Users\Patryk\source\repos\BiernatCounter\BiernatCounter\BiernatCounter.csproj;x64
