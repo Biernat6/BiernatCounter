@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BiernatCounter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e5ce7338c28dd124738a8c54b2eb0707098be429")]
 [assembly: System.Reflection.AssemblyProductAttribute("BiernatCounter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BiernatCounter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

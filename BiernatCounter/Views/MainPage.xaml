@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BiernatCounter.ViewModels"
+             xmlns:models="clr-namespace:BiernatCounter.Models"
+             x:Class="BiernatCounter.Views.MainPage"
+             x:DataType="vm:MainPageViewModel"
+             Background="White">
+
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout x:Name="CounterBox" Padding="30" Spacing="20" HorizontalOptions="Center">
+            <Button
+                x:Name="Add"
+                Text="Dodaj licznik"
+                Command="{Binding AddCounterCommand}"
+                BackgroundColor="LightBlue"
+                TextColor="White"
+                MaximumWidthRequest="180"
+                HeightRequest="40"
+                FontSize="Medium" />
+
+            <CollectionView ItemsSource="{Binding Counters}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CounterModel">
+                        <Border Stroke="Gray" StrokeThickness="2" Padding="20" BackgroundColor="LightGray" WidthRequest="300" HorizontalOptions="Center">
+                            <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                                <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center" FontSize="18" />
+                                <Label Text="{Binding InitialValue}" TextColor="Black" FontSize="24" HorizontalOptions="Center" />
+                                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                                    <Button Text="-" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=DecrementCounterCommand}" 
+                                CommandParameter="{Binding .}" 
+                                BackgroundColor="Red" TextColor="White" WidthRequest="80" HeightRequest="40" FontSize="20" />
+                                    <Button Text="+" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=IncrementCounterCommand}" 
+                                CommandParameter="{Binding .}" 
+                                BackgroundColor="Green" TextColor="White" WidthRequest="80" HeightRequest="40" FontSize="20" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
